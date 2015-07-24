@@ -80,10 +80,10 @@ class RelationshipColumnViewPlugin extends MantisPlugin
    {
       $t_project_id = helper_get_current_project ();
       $t_user_id = auth_get_current_user_id ();
-      $t_user_has_upload_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('ThresholdLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
+      $t_user_has_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('ThresholdLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
 
       if (  plugin_config_get ('ShowInFooter') == 1
-         && $t_user_has_upload_level
+         && $t_user_has_level
          )
       {
          return   '<address>' . $this->name . ' ' . $this->version . ' by <a href="mailto://' . $this->contact . '">' . $this->author . '</a></address>';
@@ -100,11 +100,11 @@ class RelationshipColumnViewPlugin extends MantisPlugin
    {
       $t_project_id = helper_get_current_project ();
       $t_user_id = auth_get_current_user_id ();
-      $t_user_has_upload_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('ThresholdLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
+      $t_user_has_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('ThresholdLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
 		$t_result = array ();
 
-		if (  plugin_config_get ('ShowRelationshipColumn')
-         && $t_user_has_upload_level
+		if (  plugin_config_get ('ShowRelationshipColumn') == gpc_get_int ('ShowRelationshipColumn', ON)
+         && $t_user_has_level
          )
       {
 			require_once ('classes/RelationshipColumn.class.php');
