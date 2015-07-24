@@ -1,0 +1,10 @@
+﻿<?php
+/* Configuration page */
+
+$s_plugin_RelationshipColumnView_config_title                     = 'RelationshipColumnView - Konfiguration';
+$s_plugin_RelationshipColumnView_config_caption                   = 'Konfiguration';
+$s_plugin_RelationshipColumnView_show_plugin_info_footer          = 'Plugin Information in Fusszeile?';
+$s_plugin_RelationshipColumnView_show_relationship_information    = 'Spalte mit Beziehungsinformationen anzeigen?';
+$s_plugin_RelationshipColumnView_show_relationships_colorful      = 'Beziehungen farblich anzeigen?';
+$s_plugin_RelationshipColumnView_relationship_column_access_level = 'Zugriffslevel für Spalte mit Beziehungsinformationen';
+$s_plugin_RelationshipColumnView_relationship                     = 'Beziehung';

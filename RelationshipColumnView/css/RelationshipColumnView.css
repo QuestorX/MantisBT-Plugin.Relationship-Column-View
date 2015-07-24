@@ -1,0 +1,51 @@
+div.rcv_tooltip_title
+{
+   border-bottom: 1px solid #DCA;
+}
+
+div.rcv_tooltip_content
+{
+   margin-top: 4px !important;
+}
+
+a.rcv_tooltip
+{
+   outline: none !important;
+}
+
+a.rcv_tooltip strong
+{
+   line-height: 30px !important;
+}
+
+a.rcv_tooltip:hover
+{
+   text-decoration: none !important;
+} 
+
+a.rcv_tooltip span
+{
+   z-index: 10 !important;
+   display: none !important; 
+   padding: 4px 8px !important;
+   margin-top: 30px !important;
+   margin-left: -125px !important;
+   width: 250px !important;
+   line-height: 16px !important;
+}
+
+a.rcv_tooltip:hover span
+{
+   display: inline !important;
+   position: absolute !important;
+   color: #111 !important;
+   border: 1px solid #DCA !important; 
+   background: #fffAF0 !important;
+}
+
+/*CSS3 extras*/
+a.rcv_tooltip span
+{
+   border-radius: 4px !important;
+   box-shadow: 5px 5px 8px #CCC !important;
+}
