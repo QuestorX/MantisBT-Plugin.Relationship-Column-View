@@ -17,20 +17,20 @@ print_manage_menu ();
 <table align="center" class="width75" cellspacing="1">
 
 <tr>
-	<td class="form-title" colspan="3">
-		<?php echo plugin_lang_get ('config_caption'); ?>
-	</td>
+   <td class="form-title" colspan="3">
+      <?php echo plugin_lang_get ('config_caption'); ?>
+   </td>
 </tr>
 
 
 <tr <?php echo helper_alternate_class ()?>>
-	<td class="category">
-		<?php echo plugin_lang_get ('show_plugin_info_footer'); ?>
-	</td>
-	<td width="200px">
-		<label><input type="radio" name="ShowInFooter" value="1" <?php echo (ON == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/>Yes</label>
-		<label><input type="radio" name="ShowInFooter" value="0" <?php echo (OFF == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/>No</label>
-	</td>
+   <td class="category">
+      <?php echo plugin_lang_get ('show_plugin_info_footer'); ?>
+   </td>
+   <td width="200px">
+      <label><input type="radio" name="ShowInFooter" value="1" <?php echo (ON == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/>Yes</label>
+      <label><input type="radio" name="ShowInFooter" value="0" <?php echo (OFF == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/>No</label>
+   </td>
 </tr>
 
 <!-- spacer -->
@@ -39,22 +39,22 @@ print_manage_menu ();
 </tr>
 
 <tr <?php echo helper_alternate_class ()?>>
-	<td class="category">
-		<?php echo plugin_lang_get ('show_relationship_information'); ?>
-	</td>
-	<td width="200px">
-		<label><input type="radio" name="ShowRelationshipColumn" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/>Yes</label>
-		<label><input type="radio" name="ShowRelationshipColumn" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/>No</label>
-	</td>
+   <td class="category">
+      <?php echo plugin_lang_get ('show_relationship_information'); ?>
+   </td>
+   <td width="200px">
+      <label><input type="radio" name="ShowRelationshipColumn" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/>Yes</label>
+      <label><input type="radio" name="ShowRelationshipColumn" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/>No</label>
+   </td>
 </tr>
 <tr <?php echo helper_alternate_class( )?>>
-	<td class="category">
-		<?php echo plugin_lang_get ('show_relationships_colorful'); ?>
-	</td>
-	<td width="200px">
-		<label><input type="radio" name="ShowRelationshipsColorful" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/>Yes</label>
-		<label><input type="radio" name="ShowRelationshipsColorful" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/>No</label>
-	</td>
+   <td class="category">
+      <?php echo plugin_lang_get ('show_relationships_colorful'); ?>
+   </td>
+   <td width="200px">
+      <label><input type="radio" name="ShowRelationshipsColorful" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/>Yes</label>
+      <label><input type="radio" name="ShowRelationshipsColorful" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/>No</label>
+   </td>
 </tr>
 
 <!-- Upload access level -->
@@ -77,9 +77,9 @@ print_manage_menu ();
 
 
 <tr>
-	<td class="center" colspan="3">
-		<input type="submit" class="button" value="<?php echo lang_get ('change_configuration')?>" />
-	</td>
+   <td class="center" colspan="3">
+      <input type="submit" class="button" value="<?php echo lang_get ('change_configuration')?>" />
+   </td>
 </tr>
 
 </table>
