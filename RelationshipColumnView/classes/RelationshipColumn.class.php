@@ -36,7 +36,9 @@ function GetRelationshipContent ($p_bug_id, $p_html = false)
       $t_text .= '>' . string_display_line (bug_format_id ($t_related_bug_id));
       $t_text .= '<span>';
       $t_text .= '<div class="rcv_tooltip_title">' . bug_format_id ($t_related_bug_id) . '</div>';
-      $t_text .= '<div class="rcv_tooltip_content">' . $t_bug->summary . '</div>';
+      $t_text .= '<div class="rcv_tooltip_content">' . utf8_substr (string_email_links ($t_bug->summary), 0, MAX_TOOLTIP_CONTENT_LENGTH);
+      $t_text .= ((MAX_TOOLTIP_CONTENT_LENGTH < strlen ($t_bug->summary)) ? '...' : '');
+      $t_text .= '</div>';
       $t_text .= '</span>';
       $t_text .= '</a>';
       // $t_text = relationship_get_details ($p_bug_id, $t_relationship_all[$i], false, false, $t_show_project);
