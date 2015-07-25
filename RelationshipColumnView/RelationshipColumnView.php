@@ -12,6 +12,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       $this->requires      = array
       (
          'MantisCore'   => '1.2.0',
+         'MantisCore'   => '1.3.0'
       );
 
       $this->author      = 'Rainer Dierck';

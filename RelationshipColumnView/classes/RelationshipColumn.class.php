@@ -78,7 +78,7 @@ class RelationshipColumn extends MantisColumn
       plugin_pop_current ();
    }
 
-   public function display ($p_bug, $p_columns_target)
+   public function display (BugData $p_bug, $p_columns_target)
    {
       plugin_push_current ('RelationshipColumnView');
 
