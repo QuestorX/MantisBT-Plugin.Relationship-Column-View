@@ -5,6 +5,8 @@ form_security_validate ('plugin_RelationshipColumnView_config_edit');
 auth_reauthenticate ();
 access_ensure_global_level (config_get ('manage_plugin_threshold'));
 
+//$t_project_id = helper_get_current_project ();
+
 $ShowInFooter = gpc_get_int ('ShowInFooter', ON);
 if (plugin_config_get ('ShowInFooter') != $ShowInFooter)
 {
@@ -23,11 +25,10 @@ if (plugin_config_get ('ShowRelationshipsColorful') != $ShowRelationshipsColorfu
    plugin_config_set ('ShowRelationshipsColorful', $ShowRelationshipsColorful);
 }
 
-$t_project_id = helper_get_current_project ();
-$t_relationship_column_access_level = gpc_get_int ('relationship_column_access_level');
-if (plugin_config_get ('ThresholdLevel') != $t_relationship_column_access_level)
+$RelationshipColumnAccessLevel = gpc_get_int ('RelationshipColumnAccessLevel');
+if (plugin_config_get ('RelationshipColumnAccessLevel') != $RelationshipColumnAccessLevel)
 {
-   plugin_config_set ('ThresholdLevel', $t_relationship_column_access_level, NO_USER, $t_project_id);
+   plugin_config_set ('RelationshipColumnAccessLevel', $RelationshipColumnAccessLevel);
 }
 
 form_security_purge ('plugin_RelationshipColumnView_config_edit');

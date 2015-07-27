@@ -63,8 +63,8 @@ print_manage_menu ();
     <span class="required">*</span><?php echo plugin_lang_get ('relationship_column_access_level'); ?>
   </td>
   <td width="200px">
-    <select name="relationship_column_access_level">
-      <?php print_enum_string_option_list ('access_levels', plugin_config_get ('ThresholdLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT)); ?>
+    <select name="RelationshipColumnAccessLevel">
+      <?php print_enum_string_option_list ('access_levels', plugin_config_get ('RelationshipColumnAccessLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT)); ?>
     </select>
   </td>
 </tr>

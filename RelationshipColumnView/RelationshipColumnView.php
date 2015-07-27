@@ -8,11 +8,10 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       $this->description   = 'A simple column extender for relationships of issues';
       $this->page          = 'config';
 
-      $this->version       = '1.0';
+      $this->version       = '1.0.1';
       $this->requires      = array
       (
-         'MantisCore'   => '1.2.0',
-         'MantisCore'   => '1.3.0'
+         'MantisCore'   => '1.2.0, <= 1.3.1'
       );
 
       $this->author      = 'Rainer Dierck';
@@ -68,10 +67,10 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       return   
          array
          (
-            'ShowInFooter'                => ON,
-            'ShowRelationshipColumn'      => ON,
-            'ShowRelationshipsColorful'   => ON,
-            'ThresholdLevel'              => ADMINISTRATOR
+            'ShowInFooter'                   => ON,
+            'ShowRelationshipColumn'         => ON,
+            'ShowRelationshipsColorful'      => ON,
+            'RelationshipColumnAccessLevel'  => ADMINISTRATOR
          );
    }
    
@@ -81,7 +80,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
    {
       $t_project_id = helper_get_current_project ();
       $t_user_id = auth_get_current_user_id ();
-      $t_user_has_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('ThresholdLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
+      $t_user_has_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('RelationshipColumnAccessLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
 
       if (  plugin_config_get ('ShowInFooter') == 1
          && $t_user_has_level
@@ -101,14 +100,17 @@ class RelationshipColumnViewPlugin extends MantisPlugin
    {
       $t_project_id = helper_get_current_project ();
       $t_user_id = auth_get_current_user_id ();
-      $t_user_has_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('ThresholdLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
+      $t_user_has_level = user_get_access_level ($t_user_id, $t_project_id) >= plugin_config_get ('RelationshipColumnAccessLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT);
       $t_result = array ();
 
       if (  plugin_config_get ('ShowRelationshipColumn') == gpc_get_int ('ShowRelationshipColumn', ON)
          && $t_user_has_level
          )
       {
-         require_once ('classes/RelationshipColumn.class.php');
+         if ('1.2.' == substr (MANTIS_VERSION, 0, 4))
+            require_once ('classes/RelationshipColumn.class.1.2.0.php');
+         else
+            require_once ('classes/RelationshipColumn.class.1.3.0.php');
          $t_result[] = 'RelationshipColumn';
       }
       return $t_result;
