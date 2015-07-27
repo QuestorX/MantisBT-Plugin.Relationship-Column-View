@@ -43,15 +43,14 @@ class RelationshipColumnViewPlugin extends MantisPlugin
          'EVENT_MANAGE_PROJECT_UPDATE_FORM'  => 'project_update_form',
          'EVENT_MANAGE_PROJECT_UPDATE'       => 'project_update',
          
-         'EVENT_LAYOUT_RESOURCES'            =>   'event_layout_resources',
+         'EVENT_LAYOUT_RESOURCES'            => 'event_layout_resources',
          'EVENT_FILTER_COLUMNS'              => 'add_columns'
       );
       return $hooks;
    }
    
    function init ()
-   {
-      // Get path to core folder
+   {  // Get path to core folder
       $t_core_path   =  config_get_global ('plugin_path')
                      .  plugin_get_current ()
                      .  DIRECTORY_SEPARATOR
@@ -86,7 +85,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
          && $t_user_has_level
          )
       {
-         return   '<address>' . $this->name . ' ' . $this->version . ' by <a href="mailto://' . $this->contact . '">' . $this->author . '</a></address>';
+         return   '<address>' . $this->name . ' ' . $this->version . ' Copyright &copy; 2015 by <a href="mailto://' . $this->contact . '">' . $this->author . '</a></address>';
       }
       return "";
    }
