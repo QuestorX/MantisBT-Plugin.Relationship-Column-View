@@ -42,7 +42,6 @@ function GetRelationshipContent ($p_bug_id, $p_html = false)
       $t_text .= '</span>';
       $t_text .= '</a>';
 
-      // https://aulendil.cbb.de:444/bug_relationship_delete.php?bug_id=2004&rel_id=365&bug_relationship_delete_token=201507291119bd4d5459740bdb69406c5ad0d9241fd24640
       if (  !bug_is_readonly ($p_bug_id)
          && !current_user_is_anonymous ()
          && (false == $p_html_preview)
