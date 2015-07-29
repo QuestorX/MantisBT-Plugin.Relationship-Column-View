@@ -41,7 +41,27 @@ function GetRelationshipContent ($p_bug_id, $p_html = false)
       $t_text .= '</div>';
       $t_text .= '</span>';
       $t_text .= '</a>';
-      // $t_text = relationship_get_details ($p_bug_id, $t_relationship_all[$i], false, false, $t_show_project);
+
+      // https://aulendil.cbb.de:444/bug_relationship_delete.php?bug_id=2004&rel_id=365&bug_relationship_delete_token=201507291119bd4d5459740bdb69406c5ad0d9241fd24640
+      if (  !bug_is_readonly ($p_bug_id)
+         && !current_user_is_anonymous ()
+         && (false == $p_html_preview)
+         )
+      {  // bug not read only
+         if (access_has_bug_level (config_get ('update_bug_threshold'), $p_bug_id))
+         {  // user has access level
+            // add a delete link
+            $t_text .= ' [';
+            $t_text .= '<a class="small" href="bug_relationship_delete.php?bug_id=' . $p_bug_id;
+            $t_text .= '&amp;rel_id=' . $p_relationship->id;
+            $t_text .= '&amp;redirect_url=view_all_bug_page.php';
+            $t_text .= htmlspecialchars (form_security_param ('bug_relationship_delete'));
+            $t_text .= '">' . lang_get ('delete_link') . '</a>';
+            $t_text .= ']';
+         }
+      }
+
+      // $t_text = relationship_get_details ($p_bug_id, $t_relationship_all[$i], true, false, $t_show_project);
 
       if (false == $p_html)
       {
