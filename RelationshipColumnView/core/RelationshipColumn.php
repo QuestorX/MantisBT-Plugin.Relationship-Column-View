@@ -2,7 +2,7 @@
 // Load RelationshipColumnView configuration
 require_once (RELATIONSHIPCOLUMNVIEW_CORE_URI . 'constant_api.php');
 
-function GetRelationshipContent ($p_bug_id, $p_html = false)
+function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = false)
 {
    $t_summary = '';
    $t_text = '';
@@ -29,37 +29,40 @@ function GetRelationshipContent ($p_bug_id, $p_html = false)
       # get the information from the related bug and prepare the link
       $t_bug   = bug_get ($t_related_bug_id, false);
 
-      $t_text  = utf8_str_pad ($t_relationship_descr, 20);
-      $t_text .= '<a href="' . string_get_bug_view_url ($t_related_bug_id) . '"';
-      $t_text .= ' class="rcv_tooltip"';
-      //$t_text .= ' title="' . utf8_str_pad (bug_format_id ($t_related_bug_id), 8) . "\n" . string_attribute ($t_bug->summary) . '"';
-      $t_text .= '>' . string_display_line (bug_format_id ($t_related_bug_id));
-      $t_text .= '<span>';
-      $t_text .= '<div class="rcv_tooltip_title">' . bug_format_id ($t_related_bug_id) . '</div>';
-      $t_text .= '<div class="rcv_tooltip_content">' . utf8_substr (string_email_links ($t_bug->summary), 0, MAX_TOOLTIP_CONTENT_LENGTH);
-      $t_text .= ((MAX_TOOLTIP_CONTENT_LENGTH < strlen ($t_bug->summary)) ? '...' : '');
-      $t_text .= '</div>';
-      $t_text .= '</span>';
-      $t_text .= '</a>';
+      $t_text  = trim (utf8_str_pad ($t_relationship_descr, 20)) . ' ';
+      if( $p_html_preview == true ) {
+         $t_text .= '<a href="' . string_get_bug_view_url ($t_related_bug_id) . '"';
+         $t_text .= ' class="rcv_tooltip"';
+         //$t_text .= ' title="' . utf8_str_pad (bug_format_id ($t_related_bug_id), 8) . "\n" . string_attribute ($t_bug->summary) . '"';
+         $t_text .= '>';
+      }
+      $t_text .= string_display_line (bug_format_id ($t_related_bug_id));
+      if( $p_html_preview == true ) {
+         $t_text .= '<span>';
+         $t_text .= '<div class="rcv_tooltip_title">' . bug_format_id ($t_related_bug_id) . '</div>';
+         $t_text .= '<div class="rcv_tooltip_content">' . utf8_substr (string_email_links ($t_bug->summary), 0, MAX_TOOLTIP_CONTENT_LENGTH);
+         $t_text .= ((MAX_TOOLTIP_CONTENT_LENGTH < strlen ($t_bug->summary)) ? '...' : '');
+         $t_text .= '</div>';
+         $t_text .= '</span>';
+         $t_text .= '</a>';
+      }
 
-      if (plugin_config_get ('ShowRelationshipsControl'))
-      {
-         if (  !bug_is_readonly ($p_bug_id)
-            && !current_user_is_anonymous ()
-            && (false == $p_html_preview)
-            )
-         {  // bug not read only
-            if (access_has_bug_level (config_get ('update_bug_threshold'), $p_bug_id))
-            {  // user has access level
-               // add a delete link
-               $t_text .= ' [';
-               $t_text .= '<a class="small" href="bug_relationship_delete.php?bug_id=' . $p_bug_id;
-               $t_text .= '&amp;rel_id=' . $p_relationship->id;
-               $t_text .= '&amp;redirect_url=view_all_bug_page.php';
-               $t_text .= htmlspecialchars (form_security_param ('bug_relationship_delete'));
-               $t_text .= '">' . lang_get ('delete_link') . '</a>';
-               $t_text .= ']';
-            }
+      if (  plugin_config_get ('ShowRelationshipsControl')
+         && !bug_is_readonly ($p_bug_id)
+         && !current_user_is_anonymous ()
+         && (true == $p_html_preview)
+         )
+      {  // bug not read only
+         if (access_has_bug_level (config_get ('update_bug_threshold'), $p_bug_id))
+         {  // user has access level
+            // add a delete link
+            $t_text .= ' [';
+            $t_text .= '<a class="small" href="bug_relationship_delete.php?bug_id=' . $p_bug_id;
+            $t_text .= '&amp;rel_id=' . $p_relationship->id;
+            $t_text .= '&amp;redirect_url=view_all_bug_page.php';
+            $t_text .= htmlspecialchars (form_security_param ('bug_relationship_delete'));
+            $t_text .= '">' . lang_get ('delete_link') . '</a>';
+            $t_text .= ']';
          }
       }
 
@@ -67,19 +70,32 @@ function GetRelationshipContent ($p_bug_id, $p_html = false)
 
       if (false == $p_html)
       {
-         if ($i != 0)
-            $t_summary .= ",\n";
+         if ($i != 0) {
+            if ($p_html_preview == true) {
+               $t_summary .= ",\n";
+            } else {
+               $t_summary .= ", ";
+            }
+         }
          $t_summary .= $t_text;
       }
       else
       {
-         $t_summary .= '<tr bgcolor="' . get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id) . '">';
-         $t_summary .= '<td>' . $t_text . '</td>';
-         $t_summary .= '</tr>' . "\n";
+         if( $p_html_preview == true ) {
+            $t_summary .= '<tr bgcolor="' . get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id) . '">';
+            $t_summary .= '<td>' . $t_text . '</td>';
+            $t_summary .= '</tr>' . "\n";
+         } else {
+            if ($i != 0)
+               $t_summary .= ", ";
+            $t_summary .= $t_text;
+         }
       }
    }
 
-   if (!is_blank ($t_summary)) 
+   if (  !is_blank ($t_summary)
+      && $p_html_preview == true
+      ) 
    {
       $t_summary = '<table border="0" width="100%" cellpadding="0" cellspacing="1">' . $t_summary . '</table>';
    }
