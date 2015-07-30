@@ -8,7 +8,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       $this->description   = 'A simple column extender for relationships of issues';
       $this->page          = 'config';
 
-      $this->version       = '1.0.2';
+      $this->version       = '1.0.3';
       $this->requires      = array
       (
          'MantisCore'   => '1.2.0, <= 1.3.1'
@@ -69,6 +69,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
             'ShowInFooter'                   => ON,
             'ShowRelationshipColumn'         => ON,
             'ShowRelationshipsColorful'      => ON,
+            'ShowRelationshipsControl'       => ON,
             'RelationshipColumnAccessLevel'  => ADMINISTRATOR
          );
    }

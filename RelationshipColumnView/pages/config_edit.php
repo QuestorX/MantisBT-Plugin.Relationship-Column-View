@@ -25,6 +25,12 @@ if (plugin_config_get ('ShowRelationshipsColorful') != $ShowRelationshipsColorfu
    plugin_config_set ('ShowRelationshipsColorful', $ShowRelationshipsColorful);
 }
 
+$ShowRelationshipsControl = gpc_get_int ('ShowRelationshipsControl', ON);
+if (plugin_config_get ('ShowRelationshipsControl') != $ShowRelationshipsControl)
+{
+   plugin_config_set ('ShowRelationshipsControl', $ShowRelationshipsControl);
+}
+
 $RelationshipColumnAccessLevel = gpc_get_int ('RelationshipColumnAccessLevel');
 if (plugin_config_get ('RelationshipColumnAccessLevel') != $RelationshipColumnAccessLevel)
 {

@@ -1,10 +1,13 @@
 ﻿<?php
 /* Configuration page */
 
-$s_plugin_RelationshipColumnView_config_title                     = 'RelationshipColumnView - Konfiguration';
-$s_plugin_RelationshipColumnView_config_caption                   = 'Konfiguration für alle Projekte';
-$s_plugin_RelationshipColumnView_show_plugin_info_footer          = 'Plugin Information in Fusszeile?';
-$s_plugin_RelationshipColumnView_show_relationship_information    = 'Spalte mit Beziehungsinformationen anzeigen?';
-$s_plugin_RelationshipColumnView_show_relationships_colorful      = 'Beziehungen farblich anzeigen?';
-$s_plugin_RelationshipColumnView_relationship_column_access_level = 'Zugriffslevel für Spalte mit Beziehungsinformationen';
-$s_plugin_RelationshipColumnView_relationship                     = 'Beziehung';
+$s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - Konfiguration';
+$s_plugin_RelationshipColumnView_config_caption                      = 'Konfiguration für alle Projekte';
+$s_plugin_RelationshipColumnView_show_plugin_info_footer             = 'Plugin Information in Fusszeile?';
+$s_plugin_RelationshipColumnView_show_relationship_information       = 'Spalte mit Beziehungsinformationen anzeigen?';
+$s_plugin_RelationshipColumnView_show_relationship_information_info  = 'Wenn die Spalte "relationshipcolumnview_relationship" (aus "alle verfügbaren Spalten") der "Verwaltung / Konfiguration verwalten / Spalten verwalten" ist mindestens für die Ansicht "Probleme anzeigen" konfiguriert';
+$s_plugin_RelationshipColumnView_show_relationships_colorful         = 'Beziehungen farblich anzeigen?';
+$s_plugin_RelationshipColumnView_show_relationships_control          = 'Optionen für Beziehungen anzeigen?';
+$s_plugin_RelationshipColumnView_show_relationships_control_info     = 'Wenn Benutzer über Zugriffslevel verfügt';
+$s_plugin_RelationshipColumnView_relationship_column_access_level    = 'Zugriffslevel für Spalte mit Beziehungsinformationen';
+$s_plugin_RelationshipColumnView_relationship                        = 'Beziehung';

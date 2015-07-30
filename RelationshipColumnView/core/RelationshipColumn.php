@@ -42,21 +42,24 @@ function GetRelationshipContent ($p_bug_id, $p_html = false)
       $t_text .= '</span>';
       $t_text .= '</a>';
 
-      if (  !bug_is_readonly ($p_bug_id)
-         && !current_user_is_anonymous ()
-         && (false == $p_html_preview)
-         )
-      {  // bug not read only
-         if (access_has_bug_level (config_get ('update_bug_threshold'), $p_bug_id))
-         {  // user has access level
-            // add a delete link
-            $t_text .= ' [';
-            $t_text .= '<a class="small" href="bug_relationship_delete.php?bug_id=' . $p_bug_id;
-            $t_text .= '&amp;rel_id=' . $p_relationship->id;
-            $t_text .= '&amp;redirect_url=view_all_bug_page.php';
-            $t_text .= htmlspecialchars (form_security_param ('bug_relationship_delete'));
-            $t_text .= '">' . lang_get ('delete_link') . '</a>';
-            $t_text .= ']';
+      if (plugin_config_get ('ShowRelationshipsControl'))
+      {
+         if (  !bug_is_readonly ($p_bug_id)
+            && !current_user_is_anonymous ()
+            && (false == $p_html_preview)
+            )
+         {  // bug not read only
+            if (access_has_bug_level (config_get ('update_bug_threshold'), $p_bug_id))
+            {  // user has access level
+               // add a delete link
+               $t_text .= ' [';
+               $t_text .= '<a class="small" href="bug_relationship_delete.php?bug_id=' . $p_bug_id;
+               $t_text .= '&amp;rel_id=' . $p_relationship->id;
+               $t_text .= '&amp;redirect_url=view_all_bug_page.php';
+               $t_text .= htmlspecialchars (form_security_param ('bug_relationship_delete'));
+               $t_text .= '">' . lang_get ('delete_link') . '</a>';
+               $t_text .= ']';
+            }
          }
       }
 
