@@ -1,52 +1,61 @@
 div.rcv_tooltip_title
 {
-   border-bottom: 1px solid #a6c3dc;
+   border-bottom: 1px solid #777;
    text-align: left;
 }
 
 div.rcv_tooltip_content
 {
-   margin-top: 4px !important;
+   margin-top: 4px;
    text-align: left;
 }
 
 a.rcv_tooltip
 {
-   outline: none !important;
+   outline: none;
 }
 
 a.rcv_tooltip strong
 {
-   line-height: 30px !important;
+   line-height: 30px;
 }
 
 a.rcv_tooltip:hover
 {
-   text-decoration: none !important;
+   text-decoration: none;
 } 
 
 a.rcv_tooltip span
 {
-   z-index: 10 !important;
-   display: none !important; 
-   padding: 4px 8px !important;
-   margin-top: 30px !important;
-   margin-left: -200px !important;
-   width: 250px !important;
-   line-height: 16px !important;
+   z-index: 10;
+   display: none; 
+   padding: 4px 8px;
+   margin-top: 30px;
+   margin-left: -200px;
+   width: 250px;
+   line-height: 16px;
 }
 
 a.rcv_tooltip:hover span
 {
-   display: inline !important;
-   position: absolute !important;
-   border: 1px solid #a6c3dc !important; 
-   color: #121212 !important;
-   background: #eef4ff !important;
+   display: inline;
+   position: absolute;
+   border: 1px solid #777; 
+   color: #121212;
+	background-color: #dedede;
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fdfdfd), to(#dedede));
+   background-image: -webkit-linear-gradient(top, #fdfdfd, #dedede);
+   background-image: -moz-linear-gradient(top, #fdfdfd, #dedede);
+   background-image: -ms-linear-gradient(top, #fdfdfd, #dedede);
+   background-image: -o-linear-gradient(top, #fdfdfd, #dedede);
+   background-image: linear-gradient(top, #fdfdfd, #dedede);
 }
 
 /* CSS3 */
 a.rcv_tooltip span
 {
-   border-radius: 5px !important;
+   border: solid 1px #777;
+   -moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+   border-radius: 6px;
 }
