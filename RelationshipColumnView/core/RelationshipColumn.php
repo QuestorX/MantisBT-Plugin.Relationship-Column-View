@@ -2,6 +2,43 @@
 // Load RelationshipColumnView configuration
 require_once (RELATIONSHIPCOLUMNVIEW_CORE_URI . 'constant_api.php');
 
+/*
+ * @param $Color  the hexadecimal color value as string w/o '#' 
+ * @param $Value  the value to light or dark the rgb color value
+ */
+function ChangeColorBrightness ($Color, $Value)
+{
+   $Result = '';
+   
+   $Color = str_replace ('#', '', $Color);
+   if (strlen ($Color) == 3)
+   {  // Color is a three digit value
+      $Color   =  str_repeat (substr ($Color, 0, 1), 2);
+      $Color   .= str_repeat (substr ($Color, 1, 1), 2);
+      $Color   .= str_repeat (substr ($Color, 2, 1), 2);
+   }
+   
+   if ($Value > 255)
+      $Value = 255;
+   else if ($Value < -255)
+      $Value = -255;
+
+   $ColorRGB = str_split ($Color, 2);
+
+   foreach ($ColorRGB as $Segment) {
+      $Segment = hexdec ($Segment) + $Value;
+      if ($Segment > 255)
+         $Segment = 255;
+      else if ($Segment < 0)
+         $Segment = 0;
+      $Result .= str_pad (dechex ($Segment), 2, '0', STR_PAD_LEFT);
+   }
+   return '#' . $Result;
+}
+
+/*
+ *
+ */
 function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = false)
 {
    $t_summary = '';
@@ -83,7 +120,8 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
       {
          if( $p_html_preview == true ) {
             $t_summary .= '<tr bgcolor="' . get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id) . '">';
-            $t_summary .= '<td>' . $t_text . '</td>';
+            $t_summary .= '<td style="border: solid 1px ' . ChangeColorBrightness (get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id), -40);
+            $t_summary .= ';-moz-border-radius:0px;-webkit-border-radius: 0px;border-radius: 0px;">' . $t_text . '</td>';
             $t_summary .= '</tr>' . "\n";
          } else {
             if ($i != 0)
