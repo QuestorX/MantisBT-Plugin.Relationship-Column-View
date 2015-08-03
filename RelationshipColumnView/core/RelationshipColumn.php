@@ -120,8 +120,7 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
       {
          if( $p_html_preview == true ) {
             $t_summary .= '<tr bgcolor="' . get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id) . '">';
-            $t_summary .= '<td style="border: solid 1px ' . ChangeColorBrightness (get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id), -40);
-            $t_summary .= ';-moz-border-radius:0px;-webkit-border-radius: 0px;border-radius: 0px;">' . $t_text . '</td>';
+            $t_summary .= '<td>' . $t_text . '</td>';
             $t_summary .= '</tr>' . "\n";
          } else {
             if ($i != 0)
