@@ -96,7 +96,7 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
             $t_text .= ' [';
             $t_text .= '<a class="small" href="bug_relationship_delete.php?bug_id=' . $p_bug_id;
             $t_text .= '&amp;rel_id=' . $p_relationship->id;
-            $t_text .= '&amp;redirect_url=view_all_bug_page.php';
+            //$t_text .= '&amp;redirect_url=view_all_bug_page.php';
             $t_text .= htmlspecialchars (form_security_param ('bug_relationship_delete'));
             $t_text .= '">' . lang_get ('delete_link') . '</a>';
             $t_text .= ']';
