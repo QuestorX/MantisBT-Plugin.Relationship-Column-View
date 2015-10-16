@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /* Configuration page */
 
 $s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - Konfiguration';
@@ -10,4 +10,6 @@ $s_plugin_RelationshipColumnView_show_relationships_colorful         = 'Beziehun
 $s_plugin_RelationshipColumnView_show_relationships_control          = 'Optionen für Beziehungen anzeigen?';
 $s_plugin_RelationshipColumnView_show_relationships_control_info     = 'Wenn Benutzer über Zugriffslevel verfügt';
 $s_plugin_RelationshipColumnView_relationship_column_access_level    = 'Zugriffslevel für Spalte mit Beziehungsinformationen';
+
+/* view all bug page */
 $s_plugin_RelationshipColumnView_relationship                        = 'Beziehung';

@@ -1,0 +1,15 @@
+<?php
+/* Configuration page */
+
+$s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - configurazione';
+$s_plugin_RelationshipColumnView_config_caption                      = 'Configurazione per tutti i progetti';
+$s_plugin_RelationshipColumnView_show_plugin_info_footer             = 'Visualizza informazioni plugin piè di pagina?';
+$s_plugin_RelationshipColumnView_show_relationship_information       = 'Visualizza la colonna di relazione?';
+$s_plugin_RelationshipColumnView_show_relationship_information_info  = 'Se la nuova colonna "relationshipcolumnview_relationship" (da "Tutte le colonne disponibili") delle "Amministra / Configurazione / Gestisci colonne" è almeno per la vista "Visualizza anomalie" configurato';
+$s_plugin_RelationshipColumnView_show_relationships_colorful         = 'Visualizza relazioni colorate?';
+$s_plugin_RelationshipColumnView_show_relationships_control          = 'Visualizza opzioni di relazione?';
+$s_plugin_RelationshipColumnView_show_relationships_control_info     = 'Se l\'utente ha livello di accesso';
+$s_plugin_RelationshipColumnView_relationship_column_access_level    = 'Livello di accesso di colonna relazione';
+
+/* view all bug page */
+$s_plugin_RelationshipColumnView_relationship                        = 'Relazione';

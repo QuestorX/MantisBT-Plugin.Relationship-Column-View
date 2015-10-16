@@ -8,10 +8,10 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       $this->description   = 'A simple column extender for relationships of issues';
       $this->page          = 'config';
 
-      $this->version       = '1.0.5';
+      $this->version       = '1.0.7';
       $this->requires      = array
       (
-         'MantisCore'   => '1.2.0, <= 1.3.1'
+         'MantisCore'   => '1.2.0, <= 1.3.99'
       );
 
       $this->author      = 'Rainer Dierck';
@@ -88,7 +88,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       {
          return   '<address>' . $this->name . ' ' . $this->version . ' Copyright &copy; 2015 by <a href="mailto://' . $this->contact . '">' . $this->author . '</a></address>';
       }
-      return "";
+      return null;
    }
 
    function event_layout_resources ()
