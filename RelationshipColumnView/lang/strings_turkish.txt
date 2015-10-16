@@ -3,6 +3,8 @@
 
 $s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - Configuration';
 $s_plugin_RelationshipColumnView_config_caption                      = 'Configuration for all projects';
+$s_plugin_RelationshipColumnView_config_yes                          = 'Yes';
+$s_plugin_RelationshipColumnView_config_no                           = 'No';
 $s_plugin_RelationshipColumnView_show_plugin_info_footer             = 'Show plugin info in footer?';
 $s_plugin_RelationshipColumnView_show_relationship_information       = 'Show the relationship column?';
 $s_plugin_RelationshipColumnView_show_relationship_information_info  = 'If the new column "relationshipcolumnview_relationship" (from "All Available Columns") of the "Manage / Manage Configuration / Manage Columns" is at least for the view "View Issues" configured';

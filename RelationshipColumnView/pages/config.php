@@ -28,8 +28,8 @@ print_manage_menu ();
       <?php echo plugin_lang_get ('show_plugin_info_footer'); ?>
    </td>
    <td width="200px">
-      <label><input type="radio" name="ShowInFooter" value="1" <?php echo (ON == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/>Yes</label>
-      <label><input type="radio" name="ShowInFooter" value="0" <?php echo (OFF == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/>No</label>
+      <label><input type="radio" name="ShowInFooter" value="1" <?php echo (ON == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
+      <label><input type="radio" name="ShowInFooter" value="0" <?php echo (OFF == plugin_config_get ('ShowInFooter')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
    </td>
 </tr>
 
@@ -44,8 +44,8 @@ print_manage_menu ();
       <span class="small"><?php echo plugin_lang_get ('show_relationship_information_info'); ?></span>
    </td>
    <td width="200px">
-      <label><input type="radio" name="ShowRelationshipColumn" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/>Yes</label>
-      <label><input type="radio" name="ShowRelationshipColumn" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/>No</label>
+      <label><input type="radio" name="ShowRelationshipColumn" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
+      <label><input type="radio" name="ShowRelationshipColumn" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
    </td>
 </tr>
 <tr <?php echo helper_alternate_class( )?>>
@@ -53,8 +53,8 @@ print_manage_menu ();
       <?php echo plugin_lang_get ('show_relationships_colorful'); ?>
    </td>
    <td width="200px">
-      <label><input type="radio" name="ShowRelationshipsColorful" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/>Yes</label>
-      <label><input type="radio" name="ShowRelationshipsColorful" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/>No</label>
+      <label><input type="radio" name="ShowRelationshipsColorful" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
+      <label><input type="radio" name="ShowRelationshipsColorful" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
    </td>
 </tr>
 <tr <?php echo helper_alternate_class( )?>>
@@ -63,8 +63,8 @@ print_manage_menu ();
       <span class="small"><?php echo plugin_lang_get ('show_relationships_control_info'); ?></span>
    </td>
    <td width="200px">
-      <label><input type="radio" name="ShowRelationshipsControl" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipsControl')) ? 'checked="checked" ' : ''?>/>Yes</label>
-      <label><input type="radio" name="ShowRelationshipsControl" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipsControl')) ? 'checked="checked" ' : ''?>/>No</label>
+      <label><input type="radio" name="ShowRelationshipsControl" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipsControl')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
+      <label><input type="radio" name="ShowRelationshipsControl" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipsControl')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
    </td>
 </tr>
 

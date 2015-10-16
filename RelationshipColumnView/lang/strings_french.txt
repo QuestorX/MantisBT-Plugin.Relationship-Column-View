@@ -3,6 +3,8 @@
 
 $s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - Configuration';
 $s_plugin_RelationshipColumnView_config_caption                      = 'Configuration pour tous les projets';
+$s_plugin_RelationshipColumnView_config_yes                          = 'Oui';
+$s_plugin_RelationshipColumnView_config_no                           = 'Non';
 $s_plugin_RelationshipColumnView_show_plugin_info_footer             = 'Afficher les informations plugin dans le pied de page?';
 $s_plugin_RelationshipColumnView_show_relationship_information       = 'Afficher la colonne de la relation?';
 $s_plugin_RelationshipColumnView_show_relationship_information_info  = 'Si la nouvelle colonne "relationshipcolumnview_relationship" (à partir de «Colonnes disponibles») des «Administration / Gérer la configuration / Gérer toutes les colonnes» est au moins pour la vue «Afficher les bogues» configuré';

@@ -3,6 +3,8 @@
 
 $s_plugin_RelationshipColumnView_config_title                        = '关系列视图-配置';
 $s_plugin_RelationshipColumnView_config_caption                      = '所有项目配置';
+$s_plugin_RelationshipColumnView_config_yes                          = '是';
+$s_plugin_RelationshipColumnView_config_no                           = '否';
 $s_plugin_RelationshipColumnView_show_plugin_info_footer             = '是否在页脚显示插件信息?';
 $s_plugin_RelationshipColumnView_show_relationship_information       = '是否显示关系列?';
 $s_plugin_RelationshipColumnView_show_relationship_information_info  = '如果 "管理 / 配置管理 / 管理列" 中的 新列 "relationshipcolumnview_relationship" (可用的列) 至少 "查看问题" 视频图已配置';

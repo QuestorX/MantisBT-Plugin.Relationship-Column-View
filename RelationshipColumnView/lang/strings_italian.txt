@@ -3,6 +3,8 @@
 
 $s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - configurazione';
 $s_plugin_RelationshipColumnView_config_caption                      = 'Configurazione per tutti i progetti';
+$s_plugin_RelationshipColumnView_config_yes                          = 'Sì';
+$s_plugin_RelationshipColumnView_config_no                           = 'No';
 $s_plugin_RelationshipColumnView_show_plugin_info_footer             = 'Visualizza informazioni plugin piè di pagina?';
 $s_plugin_RelationshipColumnView_show_relationship_information       = 'Visualizza la colonna di relazione?';
 $s_plugin_RelationshipColumnView_show_relationship_information_info  = 'Se la nuova colonna "relationshipcolumnview_relationship" (da "Tutte le colonne disponibili") delle "Amministra / Configurazione / Gestisci colonne" è almeno per la vista "Visualizza anomalie" configurato';
