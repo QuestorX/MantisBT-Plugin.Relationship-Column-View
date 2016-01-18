@@ -16,3 +16,6 @@ Available Translations
   - english, french, german, italian, chinese
   - You are welcome to translate this plugin, in a different language:
     https://crowdin.com/project/RelationshipColumnView
+
+Screenshot
+![ViewAllBugPage with this plugin](/images/RelationshipColumnView_ViewAllBugPage.png?raw=true "")
