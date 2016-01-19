@@ -17,7 +17,7 @@ print_manage_menu ();
 <table align="center" class="width75" cellspacing="1">
 
 <tr>
-   <td class="form-title" colspan="3">
+   <td class="form-title" colspan="2">
       <?php echo plugin_lang_get ('config_caption'); ?>
    </td>
 </tr>
@@ -71,7 +71,7 @@ print_manage_menu ();
 <!-- Upload access level -->
 <tr <?php echo helper_alternate_class() ?>>
   <td class="category" width="30%">
-    <span class="required">*</span><?php echo plugin_lang_get ('relationship_column_access_level'); ?>
+    <?php echo plugin_lang_get ('relationship_column_access_level'); ?>
   </td>
   <td width="200px">
     <select name="RelationshipColumnAccessLevel">
@@ -88,7 +88,7 @@ print_manage_menu ();
 
 
 <tr>
-   <td class="center" colspan="3">
+   <td class="center" colspan="2">
       <input type="submit" class="button" value="<?php echo lang_get ('change_configuration')?>" />
    </td>
 </tr>

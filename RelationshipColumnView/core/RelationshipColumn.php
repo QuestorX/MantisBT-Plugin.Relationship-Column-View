@@ -109,7 +109,7 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
       {
          if ($i != 0) {
             if ($p_html_preview == true) {
-               $t_summary .= ",\n";
+               $t_summary .= ",<br/>";
             } else {
                $t_summary .= ", ";
             }
