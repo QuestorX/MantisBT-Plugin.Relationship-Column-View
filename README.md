@@ -17,5 +17,8 @@ Available Translations
   - You are welcome to translate this plugin, in a different language:
     https://crowdin.com/project/RelationshipColumnView
 
-Screenshot
+Screenshot of the table 'Viewing Issues' of the 'View Issues' page of MantisBT
 ![ViewAllBugPage with this plugin](/images/RelationshipColumnView_ViewAllBugPage.png?raw=true "")
+
+Screenshot of the configuration dialog
+![ViewAllBugPage with this plugin](/images/RelationshipColumnView_Configuration.png?raw=true "")
