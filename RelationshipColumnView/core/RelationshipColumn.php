@@ -75,11 +75,11 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
       }
       $t_text .= string_display_line (bug_format_id ($t_related_bug_id));
       if( $p_html_preview == true ) {
-         $t_text .= '<span>';
-         $t_text .= '<div class="rcv_tooltip_title">' . bug_format_id ($t_related_bug_id) . '</div>';
-         $t_text .= '<div class="rcv_tooltip_content">' . utf8_substr (string_email_links ($t_bug->summary), 0, MAX_TOOLTIP_CONTENT_LENGTH);
+         $t_text .= '<span class="rcv_tooltip_box">';
+         $t_text .= '<span class="rcv_tooltip_title">' . bug_format_id ($t_related_bug_id) . '</span>';
+         $t_text .= '<span class="rcv_tooltip_content">' . utf8_substr (string_email_links ($t_bug->summary), 0, MAX_TOOLTIP_CONTENT_LENGTH);
          $t_text .= ((MAX_TOOLTIP_CONTENT_LENGTH < strlen ($t_bug->summary)) ? '...' : '');
-         $t_text .= '</div>';
+         $t_text .= '</span>';
          $t_text .= '</span>';
          $t_text .= '</a>';
       }
