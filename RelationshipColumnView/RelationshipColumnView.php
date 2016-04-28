@@ -93,7 +93,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
 
    function event_layout_resources ()
    {
-      echo '<link rel="stylesheet" href="' . RELATIONSHIPCOLUMNVIEW_PLUGIN_URL . 'css/RelationshipColumnView.css">' . "\n";
+      echo '<link rel="stylesheet" href="' . RELATIONSHIPCOLUMNVIEW_PLUGIN_URL . 'css/RelationshipColumnView.css"/>' . "\n";
    }
    
    function add_columns ()
