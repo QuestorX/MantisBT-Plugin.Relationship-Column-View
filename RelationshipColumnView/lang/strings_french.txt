@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /* Configuration page */
 
 $s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - Configuration';
