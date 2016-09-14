@@ -1,6 +1,6 @@
 <?php
 
-define ('RELATIONSHIPS_UTILS_PLUGIN_URL', 'plugins' . DIRECTORY_SEPARATOR . plugin_get_current () . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'RelationshipsUtils' . DIRECTORY_SEPARATOR);
+define ('RELATIONSHIPS_UTILS_PLUGIN_URL', 'plugins' . DIRECTORY_SEPARATOR . 'RelationshipColumnView' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'RelationshipsUtils' . DIRECTORY_SEPARATOR);
 
 /**
  * Class roadmap_pro_api
@@ -101,27 +101,27 @@ class RelationshipsUtils
          }
       }
 
-      if ( $useEta )
-      {  // RELATIONSHIPS_UTILS_PLUGIN_URL
-         $t_text .= '<img border="0" width="16" height="16" src="plugins/RoadmapPro/files/clock.png' . '" alt="clock" />';
-      }
+      //if ( $useEta )
+      //{  // RELATIONSHIPS_UTILS_PLUGIN_URL
+      //   $t_text .= '<img border="0" width="16" height="16" src="' . RELATIONSHIPS_UTILS_PLUGIN_URL . 'clock.png' . '" alt="clock" />';
+      //}
       if ( $forbiddenFlag )
       {
          if ($p_newline && !is_blank ($t_text))
             $t_text .= '<br/>' . "\n";
-         $t_text .= '<a href="' . $href . '"><img border="0" width="16" height="16" src="plugins/RoadmapPro/files/sign_forbidden.png" alt="' . $forbiddenAltText . '" title="' . $forbiddenAltText . '" /></a>';
+         $t_text .= '<a href="' . $href . '"><img border="0" width="16" height="16" src="' . RELATIONSHIPS_UTILS_PLUGIN_URL . 'sign_forbidden.png" alt="' . $forbiddenAltText . '" title="' . $forbiddenAltText . '" /></a>';
       }
       if ( $stopFlag )
       {
          if ($p_newline && !is_blank ($t_text))
             $t_text .= '<br/>' . "\n";
-         $t_text .= '<a href="' . $href . '"><img border="0" width="16" height="16" src="plugins/RoadmapPro/files/sign_stop.png" alt="' . $stopAltText . '" title="' . $stopAltText . '" /></a>';
+         $t_text .= '<a href="' . $href . '"><img border="0" width="16" height="16" src="' . RELATIONSHIPS_UTILS_PLUGIN_URL . 'sign_stop.png" alt="' . $stopAltText . '" title="' . $stopAltText . '" /></a>';
       }
       if ( $warningFlag )
       {
          if ($p_newline && !is_blank ($t_text))
             $t_text .= '<br/>' . "\n";
-         $t_text .= '<a href="' . $href . '"><img border="0" width="16" height="16" src="plugins/RoadmapPro/files/sign_warning.png" alt="' . $warningAltText . '" title="' . $warningAltText . '" /></a>';
+         $t_text .= '<a href="' . $href . '"><img border="0" width="16" height="16" src="' . RELATIONSHIPS_UTILS_PLUGIN_URL . 'sign_warning.png" alt="' . $warningAltText . '" title="' . $warningAltText . '" /></a>';
       }
       
       return $t_text;
