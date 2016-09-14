@@ -19,10 +19,22 @@ if (plugin_config_get ('ShowRelationshipColumn') != $ShowRelationshipColumn)
    plugin_config_set ('ShowRelationshipColumn', $ShowRelationshipColumn);
 }
 
+$ShowRelationships = gpc_get_int ('ShowRelationships', ON);
+if (plugin_config_get ('ShowRelationships') != $ShowRelationships)
+{
+   plugin_config_set ('ShowRelationships', $ShowRelationships);
+}
+
 $ShowRelationshipsColorful = gpc_get_int ('ShowRelationshipsColorful', ON);
 if (plugin_config_get ('ShowRelationshipsColorful') != $ShowRelationshipsColorful)
 {
    plugin_config_set ('ShowRelationshipsColorful', $ShowRelationshipsColorful);
+}
+
+$ShowRelationshipIcons = gpc_get_int ('ShowRelationshipIcons', ON);
+if (plugin_config_get ('ShowRelationshipIcons') != $ShowRelationshipIcons)
+{
+   plugin_config_set ('ShowRelationshipIcons', $ShowRelationshipIcons);
 }
 
 $ShowRelationshipsControl = gpc_get_int ('ShowRelationshipsControl', ON);
