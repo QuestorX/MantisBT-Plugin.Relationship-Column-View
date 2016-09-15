@@ -49,29 +49,6 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
    $t_relationship_all = relationship_get_all ($p_bug_id, $t_show_project);
    $t_relationship_all_count = count ($t_relationship_all);
 
-   if (  plugin_config_get ('ShowRelationshipIcons')
-      && !current_user_is_anonymous ()
-      && (true == $p_html_preview)
-      )
-   {
-      $t_text = RelationshipsUtils::echoBugSmybols ( $p_bug_id, true );
-      if (!is_blank ($t_text))
-      {
-         if (false == $p_html)
-         {  // p_html == No
-            $t_icons .= $t_text;
-         }
-         else
-         {  // p_html == Yes
-            if( $p_html_preview == true ) {
-               $t_icons .= '<tr><td>' . $t_text . '</td></tr>' . "\n";
-            } else {
-               $t_icons .= $t_text;
-            }
-         }
-      }
-   }
-
    if ($p_summary)
    {
       for ($i = 0; $i < $t_relationship_all_count; $i++)
@@ -151,6 +128,32 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
                if ($i != 0)
                   $t_summary .= ", ";
                $t_summary .= $t_text;
+            }
+         }
+      }
+   }
+
+   if (  plugin_config_get ('ShowRelationshipIcons')
+      && !current_user_is_anonymous ()
+      && (true == $p_html_preview)
+      )
+   {
+      $t_text = RelationshipsUtils::GetBugSmybols ( $p_bug_id, !is_blank ( $t_summary ) );
+      if (!is_blank ($t_text))
+      {
+         if (false == $p_html)
+         {  // p_html == No
+            $t_icons .= $t_text;
+         }
+         else
+         {  // p_html == Yes
+            if( $p_html_preview == true )
+            {
+               $t_icons .= '<tr><td>' . $t_text . '</td></tr>' . "\n";
+            }
+            else
+            {
+               $t_icons .= $t_text;
             }
          }
       }

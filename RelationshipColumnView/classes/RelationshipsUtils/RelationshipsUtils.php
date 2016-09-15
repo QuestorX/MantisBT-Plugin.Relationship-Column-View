@@ -17,7 +17,7 @@ class RelationshipsUtils
     * @author Rainer Dierck
     * @param $bugId
     */
-   public static function echoBugSmybols ( $bugId, $p_newline = false )
+   public static function GetBugSmybols ( $bugId, $p_newline = false )
    {
       $t_text = '';
       $bugStatus = bug_get_field ( $bugId, 'status' );
