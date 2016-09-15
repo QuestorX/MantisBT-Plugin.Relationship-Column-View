@@ -22,6 +22,28 @@ print_manage_menu ();
    </td>
 </tr>
 
+<!-- Upload access level -->
+<tr <?php echo helper_alternate_class() ?>>
+  <td class="category" width="30%">
+    <?php echo plugin_lang_get ('relationship_column_access_level'); ?>
+  </td>
+  <td width="200px">
+    <select name="RelationshipColumnAccessLevel">
+      <?php print_enum_string_option_list ('access_levels', plugin_config_get ('RelationshipColumnAccessLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT)); ?>
+    </select>
+  </td>
+</tr>
+
+<tr <?php echo helper_alternate_class ()?>>
+   <td class="category">
+      <?php echo plugin_lang_get ('show_relationship_information'); ?><br/>
+      <span class="small"><?php echo plugin_lang_get ('show_relationship_information_info'); ?></span>
+   </td>
+   <td width="200px">
+      <label><input type="radio" name="ShowRelationshipColumn" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
+      <label><input type="radio" name="ShowRelationshipColumn" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
+   </td>
+</tr>
 
 <tr <?php echo helper_alternate_class ()?>>
    <td class="category">
@@ -38,16 +60,6 @@ print_manage_menu ();
   <td class="spacer" colspan="2">&nbsp;</td>
 </tr>
 
-<tr <?php echo helper_alternate_class ()?>>
-   <td class="category">
-      <?php echo plugin_lang_get ('show_relationship_information'); ?><br/>
-      <span class="small"><?php echo plugin_lang_get ('show_relationship_information_info'); ?></span>
-   </td>
-   <td width="200px">
-      <label><input type="radio" name="ShowRelationshipColumn" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
-      <label><input type="radio" name="ShowRelationshipColumn" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipColumn')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
-   </td>
-</tr>
 <tr <?php echo helper_alternate_class( )?>>
    <td class="category">
       <?php echo plugin_lang_get ('show_relationships'); ?>
@@ -57,6 +69,7 @@ print_manage_menu ();
       <label><input type="radio" name="ShowRelationships" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationships')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
    </td>
 </tr>
+
 <tr <?php echo helper_alternate_class( )?>>
    <td class="category">
       <?php echo plugin_lang_get ('show_relationships_colorful'); ?>
@@ -66,15 +79,7 @@ print_manage_menu ();
       <label><input type="radio" name="ShowRelationshipsColorful" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipsColorful')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
    </td>
 </tr>
-<tr <?php echo helper_alternate_class( )?>>
-   <td class="category">
-      <?php echo plugin_lang_get ('show_relationship_icons'); ?>
-   </td>
-   <td width="200px">
-      <label><input type="radio" name="ShowRelationshipIcons" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipIcons')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
-      <label><input type="radio" name="ShowRelationshipIcons" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipIcons')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
-   </td>
-</tr>
+
 <tr <?php echo helper_alternate_class( )?>>
    <td class="category">
       <?php echo plugin_lang_get ('show_relationships_control'); ?><br/>
@@ -86,24 +91,20 @@ print_manage_menu ();
    </td>
 </tr>
 
-<!-- Upload access level -->
-<tr <?php echo helper_alternate_class() ?>>
-  <td class="category" width="30%">
-    <?php echo plugin_lang_get ('relationship_column_access_level'); ?>
-  </td>
-  <td width="200px">
-    <select name="RelationshipColumnAccessLevel">
-      <?php print_enum_string_option_list ('access_levels', plugin_config_get ('RelationshipColumnAccessLevel', PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT)); ?>
-    </select>
-  </td>
-</tr>
-
 <!-- spacer -->
 <tr>
   <td class="spacer" colspan="2">&nbsp;</td>
 </tr>
 
-
+<tr <?php echo helper_alternate_class( )?>>
+   <td class="category">
+      <?php echo plugin_lang_get ('show_relationship_icons'); ?>
+   </td>
+   <td width="200px">
+      <label><input type="radio" name="ShowRelationshipIcons" value="1" <?php echo (ON == plugin_config_get ('ShowRelationshipIcons')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_yes' ) ?></label>
+      <label><input type="radio" name="ShowRelationshipIcons" value="0" <?php echo (OFF == plugin_config_get ('ShowRelationshipIcons')) ? 'checked="checked" ' : ''?>/><?php echo plugin_lang_get( 'config_no' ) ?></label>
+   </td>
+</tr>
 
 <tr>
    <td class="center" colspan="2">

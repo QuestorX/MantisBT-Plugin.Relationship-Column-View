@@ -54,11 +54,9 @@ class RelationshipsUtils
             && ( $relationShip->type != BUG_REL_NONE )
          )
          {
-            $isStop = ( $relationShip->type == BUG_DEPENDANT )
-               && ( $bugId == $relationShip->src_bug_id );
+            $isStop      = ( $relationShip->type == BUG_DEPENDANT ) && ( $bugId == $relationShip->src_bug_id );
+            $isWarning   = ( $relationShip->type == BUG_DEPENDANT ) && ( $bugId != $relationShip->src_bug_id );
             $isForbidden = $isStop;
-            $isWarning = ( $relationShip->type == BUG_DEPENDANT )
-               && ( $bugId != $relationShip->src_bug_id );
             if ( ( $isStop ) && ( $bugStatus == $destinationBugStatus ) )
             {
                if ( $stopAltText != "" )
