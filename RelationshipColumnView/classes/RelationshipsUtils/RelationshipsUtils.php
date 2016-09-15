@@ -49,52 +49,58 @@ class RelationshipsUtils
 
          # get the information from the related bug and prepare the link
          $destinationBugStatus = bug_get_field ( $destinationBugId, 'status' );
-         if ( ( $bugStatus < CLOSED )
+         if (  ( $bugStatus < CLOSED )
             && ( $destinationBugStatus < CLOSED )
             && ( $relationShip->type != BUG_REL_NONE )
          )
          {
-            $isStop      = ( $relationShip->type == BUG_DEPENDANT ) && ( $bugId == $relationShip->src_bug_id );
-            $isWarning   = ( $relationShip->type == BUG_DEPENDANT ) && ( $bugId != $relationShip->src_bug_id );
-            $isForbidden = $isStop;
-            if ( ( $isStop ) && ( $bugStatus == $destinationBugStatus ) )
+            if ( $relationShip->type == BUG_DEPENDANT )
             {
-               if ( $stopAltText != "" )
-               {
-                  $stopAltText .= ", ";
+               if ( $bugId == $relationShip->src_bug_id )
+               {  // Stop or Forbidden
+                  if ( $bugStatus == $destinationBugStatus )
+                  {  // Stop
+                     if ( $stopAltText != "" )
+                     {
+                        $stopAltText .= ", ";
+                     }
+                     if ( !$stopFlag )
+                     {
+                        $stopAltText .= trim ( utf8_str_pad ( $relationshipDescription, 20 ) ) . ' ';
+                     }
+                     $stopAltText .= string_display_line ( bug_format_id ( $destinationBugId ) );
+                     $stopFlag = true;
+                  }
+                  if ( $bugStatus > $destinationBugStatus )
+                  {  // Forbidden
+                     if ( $forbiddenAltText != "" )
+                     {
+                        $forbiddenAltText .= ", ";
+                     }
+                     if ( !$forbiddenFlag )
+                     {
+                        $forbiddenAltText .= trim ( utf8_str_pad ( $relationshipDescription, 20 ) ) . ' ';
+                     }
+                     $forbiddenAltText .= string_display_line ( bug_format_id ( $destinationBugId ) );
+                     $forbiddenFlag = true;
+                  }
                }
-               if ( !$stopFlag )
-               {
-                  $stopAltText .= trim ( utf8_str_pad ( $relationshipDescription, 20 ) ) . ' ';
+               else
+               {  // Warning
+                  if ( $bugStatus < $destinationBugStatus )
+                  {  // Warning
+                     if ( $warningAltText != "" )
+                     {
+                        $warningAltText .= ", ";
+                     }
+                     if ( !$warningFlag )
+                     {
+                        $warningAltText .= trim ( utf8_str_pad ( $relationshipDescription, 20 ) ) . ' ';
+                     }
+                     $warningAltText .= string_display_line ( bug_format_id ( $destinationBugId ) );
+                     $warningFlag = true;
+                  }
                }
-               $stopAltText .= string_display_line ( bug_format_id ( $destinationBugId ) );
-               $stopFlag = true;
-            }
-            if ( ( $isForbidden ) && ( $bugStatus > $destinationBugStatus ) )
-            {
-               if ( $forbiddenAltText != "" )
-               {
-                  $forbiddenAltText .= ", ";
-               }
-               if ( !$forbiddenFlag )
-               {
-                  $forbiddenAltText .= trim ( utf8_str_pad ( $relationshipDescription, 20 ) ) . ' ';
-               }
-               $forbiddenAltText .= string_display_line ( bug_format_id ( $destinationBugId ) );
-               $forbiddenFlag = true;
-            }
-            if ( ( $isWarning ) && ( $bugStatus >= $destinationBugStatus ) )
-            {
-               if ( $warningAltText != "" )
-               {
-                  $warningAltText .= ", ";
-               }
-               if ( !$warningFlag )
-               {
-                  $warningAltText .= trim ( utf8_str_pad ( $relationshipDescription, 20 ) ) . ' ';
-               }
-               $warningAltText .= string_display_line ( bug_format_id ( $destinationBugId ) );
-               $warningFlag = true;
             }
          }
       }
