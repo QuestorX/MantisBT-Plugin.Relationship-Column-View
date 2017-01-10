@@ -10,7 +10,7 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       $this->description   = 'A simple column extender for relationships of issues';
       $this->page          = 'config';
 
-      $this->version       = '1.1.0';
+      $this->version       = '1.1.1';
       $this->requires      = array
       (
          'MantisCore'   => '1.2.0, <= 2.0.99'

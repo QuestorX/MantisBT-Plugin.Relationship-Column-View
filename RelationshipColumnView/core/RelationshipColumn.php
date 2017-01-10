@@ -68,7 +68,7 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
          
          # get the information from the related bug and prepare the link
          $t_bug   = bug_get ($t_related_bug_id, false);
-
+         
          // description
          $t_text = trim (utf8_str_pad ($t_relationship_descr, 20)) . ' ';
          
@@ -90,7 +90,7 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
             //$t_text .= ' title="' . utf8_str_pad (bug_format_id ($t_related_bug_id), 8) . "\n" . string_attribute ($t_bug->summary) . '"';
             $t_text .= '>';
          }
-
+         
          // id
          $t_text .= string_display_line (bug_format_id ($t_related_bug_id));
          if( $p_html_preview == true )
@@ -165,7 +165,11 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
                }
                else
                {  // 2.x
-                  $t_summary .= '<label>' . $t_text . '</label>';
+                  if ($i != 0)
+                     $t_summary .= "<br/>";
+                  $t_summary .= '<div class="rcv_summary_item">';
+                  $t_summary .= $t_text;
+                  $t_summary .= '</div>';
                }
             } else {
                if ($i != 0)
@@ -181,7 +185,11 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
       && (true == $p_html_preview)
       )
    {
-      $t_text = RelationshipsUtils::GetBugSmybols ( $p_bug_id, !is_blank ( $t_summary ) );
+      if ('1.' != substr (MANTIS_VERSION, 0, 2))
+         $t_text = RelationshipsUtils::GetBugSmybols ( $p_bug_id, false );
+      else
+         $t_text = RelationshipsUtils::GetBugSmybols ( $p_bug_id, !is_blank ( $t_summary ) );
+      
       if (!is_blank ($t_text))
       {
          if (false == $p_html)
@@ -190,11 +198,18 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
          }
          else
          {  // p_html == Yes
-            if (  ($p_html_preview == true)
-               && ('1.' == substr (MANTIS_VERSION, 0, 2)) // 1.2.x - 1.3.x only
-               )
+            if ($p_html_preview == true)
             {
-               $t_icons .= '<tr><td>' . $t_text . '</td></tr>' . "\n";
+               if ('1.' == substr (MANTIS_VERSION, 0, 2))
+               {  // 1.2.x - 1.3.x
+                  $t_icons .= '<tr><td>' . $t_text . '</td></tr>' . "\n";
+               }
+               else
+               {  // 2.x
+                  $t_icons .= '<div class="rcv_icons">';
+                  $t_icons .= $t_text;
+                  $t_icons .= '</div>';
+               }
             }
             else
             {
@@ -236,11 +251,11 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
       {  // 2.x
          $t_result = '';
          if (!is_blank ($t_icons)) 
-            $t_result .= '<div style="display:inline-block; text-align:center; float:center; clear:center;">' . $t_icons . ' </div>';
+            $t_result .= '<label style="padding-bottom: 4px;">' . $t_icons . ' </label>';
          if (!is_blank ($t_icons) && !is_blank ($t_summary)) 
             $t_result .= '<br/>';
          if (!is_blank ($t_summary)) 
-            $t_result .= '<div style="display:inline-block; text-align:right; float:right; clear:right;">' . $t_summary . ' </div>';
+            $t_result .= '<div class="rcv_summary_list">' . $t_summary . ' </div>';
          return $t_result;
       }
    }

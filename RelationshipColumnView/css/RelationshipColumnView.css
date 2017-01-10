@@ -22,6 +22,7 @@ span.rcv_tooltip_icon
 a.rcv_tooltip span.rcv_tooltip_box
 {
    display: none;
+   white-space: normal;
    
    z-index: 10;
    padding: 4px 8px;
@@ -50,4 +51,28 @@ a.rcv_tooltip span.rcv_tooltip_box
 a.rcv_tooltip:hover span.rcv_tooltip_box
 {
    display: block;
+}
+
+div.rcv_icons
+{
+   clear: both;
+   display: inline-block;
+   overflow: hidden;
+   white-space: nowrap;
+}
+
+div.rcv_summary_item
+{
+   clear: both;
+   display: inline-block;
+   overflow: hidden;
+   white-space: nowrap;
+}
+
+div.rcv_summary_list
+{
+   display: inline-block;
+   text-align: right;
+   float: right;
+   clear: right;
 }
