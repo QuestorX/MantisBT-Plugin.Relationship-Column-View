@@ -1,12 +1,14 @@
 RelationshipColumnView
 ======================
 
-This is a plugin for MantisBT 1.2 or 1.3 MantisBT. It adds the column "Relationship" to the view of "View Issues". This column shows the existing relationships of the registered Issues. The color of the status can be displayed optionally.
+This is a plugin for MantisBT 1.2, 1.3 or 2.0. It adds the column "Relationship" to the view of "View Issues". This column shows the existing relationships of the registered Issues. The color of the status can be displayed optionally.
 
 Requirements
 ------------
 
-MantisBT 1.2 | MantisBT 1.3
+- [x] MantisBT 2.0
+- [x] MantisBT 1.3
+- [x] MantisBT 1.2
 
 Installation
 ------------
@@ -30,11 +32,17 @@ You are welcome to translate this plugin, in a different language with Crowdin.
 Screenshots
 -----------
 
-Screenshot of the table 'Viewing Issues' of the 'View Issues' page of MantisBT
-![ViewAllBugPage with this plugin](/images/RelationshipColumnView_ViewAllBugPage.png?raw=true "")
+Screenshot of the table 'Viewing Issues' of the 'View Issues' page of MantisBT V2.0.0
+![ViewAllBugPage with this plugin](/images/RelationshipColumnView_ViewAllBugPage_MantisBT2.0.png?raw=true "")
 
-Screenshot of the configuration dialog
-![ViewAllBugPage with this plugin](/images/RelationshipColumnView_Configuration.png?raw=true "")
+Screenshot of the configuration dialog of MantisBT V2.0.0
+![ViewAllBugPage with this plugin](/images/RelationshipColumnView_Configuration_MantisBT2.0.png?raw=true "")
+
+Screenshot of the table 'Viewing Issues' of the 'View Issues' page of MantisBT V1.2.19
+![ViewAllBugPage with this plugin](/images/RelationshipColumnView_ViewAllBugPage_MantisBT1.2.png?raw=true "")
+
+Screenshot of the configuration dialog of MantisBT V1.2.19
+![ViewAllBugPage with this plugin](/images/RelationshipColumnView_Configuration_MantisBT1.2.png?raw=true "")
 
 Donations
 ---------
