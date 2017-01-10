@@ -42,6 +42,7 @@ function ChangeColorBrightness ($Color, $Value)
 function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = false, $p_summary = false, $p_icons = false)
 {
    $t_summary = '';
+   $t_status_label = '';
    $t_icons = '';
    $t_show_project = false;
    $t_summary_wrap_at = utf8_strlen (config_get ('email_separator2')) - 10;
@@ -68,17 +69,51 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
          # get the information from the related bug and prepare the link
          $t_bug   = bug_get ($t_related_bug_id, false);
 
+         // description
          $t_text = trim (utf8_str_pad ($t_relationship_descr, 20)) . ' ';
+         
+         if ('1.' != substr (MANTIS_VERSION, 0, 2))
+         {  // 2.x
+            # choose color based on status  fa fa-square-o fa-xlg status-20-color
+            $t_status_label
+               =  html_get_status_css_class
+                  (  $t_bug->status, 
+                     auth_get_current_user_id (), 
+                     $t_bug->project_id
+                  );
+            $t_text .= '<i class="fa fa-square-o fa-xlg ' . $t_status_label . '"></i> ';
+         }
+
          if( $p_html_preview == true ) {
             $t_text .= '<a href="' . string_get_bug_view_url ($t_related_bug_id) . '"';
             $t_text .= ' class="rcv_tooltip"';
             //$t_text .= ' title="' . utf8_str_pad (bug_format_id ($t_related_bug_id), 8) . "\n" . string_attribute ($t_bug->summary) . '"';
             $t_text .= '>';
          }
+
+         // id
          $t_text .= string_display_line (bug_format_id ($t_related_bug_id));
-         if( $p_html_preview == true ) {
+         if( $p_html_preview == true )
+         {
             $t_text .= '<span class="rcv_tooltip_box">';
-            $t_text .= '<span class="rcv_tooltip_title">' . bug_format_id ($t_related_bug_id) . '</span>';
+            
+            $t_text .= '<span class="rcv_tooltip_title">';
+            $t_text .= bug_format_id ($t_related_bug_id);
+            if ('1.' != substr (MANTIS_VERSION, 0, 2))
+            {  // 2.x
+               # choose color based on status  fa fa-square-o fa-xlg status-20-color
+               $t_status_label
+                  =  html_get_status_css_class
+                     (  $t_bug->status, 
+                        auth_get_current_user_id (), 
+                        $t_bug->project_id
+                     );
+               $t_text .= '<span class="rcv_tooltip_icon">';
+               $t_text .= '<i class="fa fa-square-o fa-xlg ' . $t_status_label . '"></i> ';
+               $t_text .= '</span>';
+            }
+            $t_text .= '</span>';
+            
             $t_text .= '<span class="rcv_tooltip_content">' . utf8_substr (string_email_links ($t_bug->summary), 0, MAX_TOOLTIP_CONTENT_LENGTH);
             $t_text .= ((MAX_TOOLTIP_CONTENT_LENGTH < strlen ($t_bug->summary)) ? '...' : '');
             $t_text .= '</span>';
@@ -120,10 +155,18 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
          }
          else
          {  // p_html == Yes
-            if( $p_html_preview == true ) {
-               $t_summary .= '<tr bgcolor="' . get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id) . '">';
-               $t_summary .= '<td>' . $t_text . '</td>';
-               $t_summary .= '</tr>' . "\n";
+            if ($p_html_preview == true)
+            {
+               if ('1.' == substr (MANTIS_VERSION, 0, 2))
+               {  // 1.2.x - 1.3.x
+                  $t_summary .= '<tr bgcolor="' . get_status_color ($t_bug->status, auth_get_current_user_id (), $t_bug->project_id) . '">';
+                  $t_summary .= '<td>' . $t_text . '</td>';
+                  $t_summary .= '</tr>' . "\n";
+               }
+               else
+               {  // 2.x
+                  $t_summary .= '<label>' . $t_text . '</label>';
+               }
             } else {
                if ($i != 0)
                   $t_summary .= ", ";
@@ -147,7 +190,9 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
          }
          else
          {  // p_html == Yes
-            if( $p_html_preview == true )
+            if (  ($p_html_preview == true)
+               && ('1.' == substr (MANTIS_VERSION, 0, 2)) // 1.2.x - 1.3.x only
+               )
             {
                $t_icons .= '<tr><td>' . $t_text . '</td></tr>' . "\n";
             }
@@ -164,25 +209,39 @@ function GetRelationshipContent ($p_bug_id, $p_html = false, $p_html_preview = f
       $t_icons_table = '';
       $t_summary_table = '';
       
-      if (!is_blank ($t_icons))
-      {
-         $t_icons_table = '<table border="0" width="100%" cellpadding="0" cellspacing="1">' . $t_icons . '</table>';
-      }
-      if (!is_blank ($t_summary))
-      {
-         $t_summary_table = '<table border="0" width="100%" cellpadding="0" cellspacing="1">' . $t_summary . '</table>';
-      }
+      if ('1.' == substr (MANTIS_VERSION, 0, 2))
+      {  // 1.2.x - 1.3.x
+         if (!is_blank ($t_icons))
+         {
+            $t_icons_table = '<table border="0" width="100%" cellpadding="0" cellspacing="1">' . $t_icons . '</table>';
+         }
+         if (!is_blank ($t_summary))
+         {
+            $t_summary_table = '<table border="0" width="100%" cellpadding="0" cellspacing="1">' . $t_summary . '</table>';
+         }
 
-      if (!is_blank ($t_icons_table) && !is_blank ($t_summary_table)) 
-      {
-         return
-            '<table border="0" width="100%" cellpadding="0" cellspacing="0">' 
-            . '<tr><td valign="top" style="padding:0px;">' . $t_summary_table . '</td><td valign="top" style="padding:0px;">' . $t_icons_table . '</td></tr>'
-            . '</table>';
+         if (!is_blank ($t_icons_table) && !is_blank ($t_summary_table)) 
+         {
+            return
+               '<table border="0" width="100%" cellpadding="0" cellspacing="0">' 
+               . '<tr><td valign="top" style="padding:0px;">' . $t_summary_table . '</td><td valign="top" style="padding:0px;">' . $t_icons_table . '</td></tr>'
+               . '</table>';
+         }
+         else
+         {
+            return $t_summary_table . $t_icons_table;
+         }
       }
       else
-      {
-         return $t_summary_table . $t_icons_table;
+      {  // 2.x
+         $t_result = '';
+         if (!is_blank ($t_icons)) 
+            $t_result .= '<div style="display:inline-block; text-align:center; float:center; clear:center;">' . $t_icons . ' </div>';
+         if (!is_blank ($t_icons) && !is_blank ($t_summary)) 
+            $t_result .= '<br/>';
+         if (!is_blank ($t_summary)) 
+            $t_result .= '<div style="display:inline-block; text-align:right; float:right; clear:right;">' . $t_summary . ' </div>';
+         return $t_result;
       }
    }
    else

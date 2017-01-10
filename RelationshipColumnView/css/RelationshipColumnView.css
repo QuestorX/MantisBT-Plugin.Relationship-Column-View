@@ -13,6 +13,12 @@ span.rcv_tooltip_content
    text-align: left;
 }
 
+span.rcv_tooltip_icon
+{
+   position: absolute;
+   right: 8px;
+}
+
 a.rcv_tooltip span.rcv_tooltip_box
 {
    display: none;

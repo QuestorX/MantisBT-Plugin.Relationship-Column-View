@@ -1,6 +1,7 @@
 <?php
 
 define ('RELATIONSHIPCOLUMNVIEW_CORE_FOLDER', 'core');
+define ('RELATIONSHIPCOLUMNVIEW_PAGES_FOLDER', 'pages');
 
 // URL to RelationshipColumnView plugin
 define ('RELATIONSHIPCOLUMNVIEW_PLUGIN_URL', config_get_global ('path') . 'plugins' . DIRECTORY_SEPARATOR . plugin_get_current () . DIRECTORY_SEPARATOR);
@@ -11,8 +12,9 @@ define ('RELATIONSHIPCOLUMNVIEW_CORE_RELATIVE_URL', 'plugins' . DIRECTORY_SEPARA
 // Path to RelationshipColumnView plugin folder
 define ('RELATIONSHIPCOLUMNVIEW_PLUGIN_URI', config_get_global ('plugin_path') . plugin_get_current () . DIRECTORY_SEPARATOR);
 
-// Path to RelationshipColumnView core folder
+// Path to RelationshipColumnView folders
 define ('RELATIONSHIPCOLUMNVIEW_CORE_URI', RELATIONSHIPCOLUMNVIEW_PLUGIN_URI . RELATIONSHIPCOLUMNVIEW_CORE_FOLDER . DIRECTORY_SEPARATOR);
+define ('RELATIONSHIPCOLUMNVIEW_PAGES_URI', RELATIONSHIPCOLUMNVIEW_PLUGIN_URI . RELATIONSHIPCOLUMNVIEW_PAGES_FOLDER . DIRECTORY_SEPARATOR);
 
 // Default treshold level
 define ('PLUGINS_RELATIONSHIPCOLUMNVIEW_THRESHOLD_LEVEL_DEFAULT', ADMINISTRATOR);

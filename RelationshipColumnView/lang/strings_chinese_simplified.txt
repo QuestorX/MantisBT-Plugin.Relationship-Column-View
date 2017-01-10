@@ -1,7 +1,7 @@
 <?php
 /* Configuration page */
 
-$s_plugin_RelationshipColumnView_config_title                        = '关系列视图-配置';
+$s_plugin_RelationshipColumnView_config_title                        = '关系列视图';
 $s_plugin_RelationshipColumnView_config_caption                      = '所有项目配置';
 $s_plugin_RelationshipColumnView_config_yes                          = '是';
 $s_plugin_RelationshipColumnView_config_no                           = '否';

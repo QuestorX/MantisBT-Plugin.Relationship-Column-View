@@ -1,7 +1,7 @@
 <?php
 /* Configuration page */
 
-$s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView - Configuration';
+$s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView';
 $s_plugin_RelationshipColumnView_config_caption                      = 'Configuration for all projects';
 $s_plugin_RelationshipColumnView_config_yes                          = 'Yes';
 $s_plugin_RelationshipColumnView_config_no                           = 'No';

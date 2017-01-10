@@ -10,10 +10,10 @@ class RelationshipColumnViewPlugin extends MantisPlugin
       $this->description   = 'A simple column extender for relationships of issues';
       $this->page          = 'config';
 
-      $this->version       = '1.0.10';
+      $this->version       = '1.1.0';
       $this->requires      = array
       (
-         'MantisCore'   => '1.2.0, <= 1.3.99'
+         'MantisCore'   => '1.2.0, <= 2.0.99'
       );
 
       $this->author      = 'Rainer Dierck';
@@ -112,9 +112,13 @@ class RelationshipColumnViewPlugin extends MantisPlugin
          )
       {
          if ('1.2.' == substr (MANTIS_VERSION, 0, 4))
+         {  // 1.2.x
             require_once ('classes' . DIRECTORY_SEPARATOR . 'RelationshipColumn.class.1.2.0.php');
+         }
          else
+         {  // 1.3.x & 2.0.x
             require_once ('classes' . DIRECTORY_SEPARATOR . 'RelationshipColumn.class.1.3.0.php');
+         }
          $t_result[] = 'RelationshipColumn';
       }
       return $t_result;
