@@ -51,4 +51,4 @@ Donations
 
 Feel free to make a donation. I collect money for other interesting projects, more MantisBT plugins, other open source projects, and of course to improve this plugin. - Thank you very much!
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HMC99WST9S274)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MDVT94VF4YTXA)
