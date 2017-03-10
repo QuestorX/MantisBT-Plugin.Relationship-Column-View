@@ -1,14 +1,15 @@
 Relationship Column View
 ========================
 
-This is a plugin for Mantis Bug Tracker (Mantis BT) 1.2, 1.3 or 2.0. It adds the column "Relationship" to the view of "View Issues". This column shows the existing relationships of the registered Issues. The color of the status can be displayed optionally.
+This is a plugin for Mantis Bug Tracker (Mantis BT) 1.2, 1.3 or 2.x. It adds the column "Relationship" to the view of "View Issues". This column shows the existing relationships of the registered Issues. The color of the status can be displayed optionally.
 
 Requirements
 ------------
 
 Mantis Bug Tracker (Mantis BT) in one of the following major versions:
+- [x] MantisBT 2.2
+- [x] MantisBT 2.1
 - [x] MantisBT 2.0
-- [ ] MantisBT 2.1 (not tested yet)
 - [x] MantisBT 1.3
 - [x] MantisBT 1.2
 
