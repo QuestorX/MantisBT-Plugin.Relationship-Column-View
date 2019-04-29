@@ -2,18 +2,18 @@
 /* Configuration page */
 
 $s_plugin_RelationshipColumnView_config_title                        = 'RelationshipColumnView';
-$s_plugin_RelationshipColumnView_config_caption                      = 'Configuration for all projects';
+$s_plugin_RelationshipColumnView_config_caption                      = 'Настройка для всех проектов';
 $s_plugin_RelationshipColumnView_config_yes                          = 'да';
 $s_plugin_RelationshipColumnView_config_no                           = 'нет';
-$s_plugin_RelationshipColumnView_show_plugin_info_footer             = 'Show plugin info in footer?';
-$s_plugin_RelationshipColumnView_show_relationship_information       = 'Show the relationship column?';
-$s_plugin_RelationshipColumnView_show_relationship_information_info  = 'If the new column "relationshipcolumnview_relationship" (from "All Available Columns") of the "Manage / Manage Configuration / Manage Columns" is at least for the view "View Issues" configured';
-$s_plugin_RelationshipColumnView_show_relationships                  = 'Show relations?';
-$s_plugin_RelationshipColumnView_show_relationships_colorful         = 'Show colorful relations?';
-$s_plugin_RelationshipColumnView_show_relationship_icons             = 'Show icons?';
-$s_plugin_RelationshipColumnView_show_relationships_control          = 'Show relationship options?';
-$s_plugin_RelationshipColumnView_show_relationships_control_info     = 'If user has access level';
-$s_plugin_RelationshipColumnView_relationship_column_access_level    = 'Relationship column access level';
+$s_plugin_RelationshipColumnView_show_plugin_info_footer             = 'Показывать информацию о плагине в подвале?';
+$s_plugin_RelationshipColumnView_show_relationship_information       = 'Показывать колонку "Связи"?';
+$s_plugin_RelationshipColumnView_show_relationship_information_info  = 'Добавляет новый столбец "relationshipcolumnview_relationship" (из "Все доступные столбцы") "Управление / Управление конфигурацией / Управление столбцами", по крайней мере, для настроенного представления "Просмотр запросов"';
+$s_plugin_RelationshipColumnView_show_relationships                  = 'Показывать связи?';
+$s_plugin_RelationshipColumnView_show_relationships_colorful         = 'Форматированный вывод связей?';
+$s_plugin_RelationshipColumnView_show_relationship_icons             = 'Показывать ярлык?';
+$s_plugin_RelationshipColumnView_show_relationships_control          = 'Показывать возможности управления связями?';
+$s_plugin_RelationshipColumnView_show_relationships_control_info     = 'Если у пользователя есть права доступа';
+$s_plugin_RelationshipColumnView_relationship_column_access_level    = 'Добавление колонки "Связи" доступно для ролей с:';
 
 /* view all bug page */
-$s_plugin_RelationshipColumnView_relationship                        = 'Relationship';
+$s_plugin_RelationshipColumnView_relationship                        = 'Связи';
